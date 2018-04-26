@@ -5,28 +5,20 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
-import java.util.Calendar;
-
 import static java.lang.Thread.sleep;
 import static org.firstinspires.ftc.teamcode.springtraining.LineTest.direction.left;
 import static org.firstinspires.ftc.teamcode.springtraining.LineTest.direction.right;
 
 @Autonomous(name = "LineTest", group = "Spring Training")
 public class LineTest extends OpMode {
-
-    Calendar loopTime;
-
+    
     DcMotor rightDrive,leftDrive;
 
     OpticalDistanceSensor opticalDistanceSensor;
 
     double blackThreshold = 0.07, whiteThreshold = 0.07;
 
-    long loopIterations = 1;
-
     direction movementDirection = left;
-
-    boolean teleOnly = false;
 
     @Override
     public void init() {
@@ -39,23 +31,11 @@ public class LineTest extends OpMode {
     }
 
     @Override
-    public void init_loop() {
-        if (gamepad1.a) {
-            teleOnly = true;
-
-            telemetry.addLine("#### Secret Mode Activated! ####");
-            telemetry.update();
-        }
-    }
-
-    @Override
     public void loop() {
-        loopTime = Calendar.getInstance();
 
         double colorValue;
         colorValue = opticalDistanceSensor.getLightDetected();
 
-        if (!teleOnly)
         switch (movementDirection) {
             case left:
                 if (colorValue > blackThreshold) {
@@ -70,16 +50,6 @@ public class LineTest extends OpMode {
                      movementDirection = left;
                  }
             }
-
-
-        telemetry.addData("Loop Time", (Calendar.getInstance().getTimeInMillis() - loopTime.getTimeInMillis()) + " ms");
-        telemetry.addData("Running for", getRuntime() + " seconds");
-
-        telemetry.addLine();
-
-        telemetry.addData("Color", opticalDistanceSensor.getLightDetected());
-
-        loopIterations++;
     }
 
     enum direction {left, right}
