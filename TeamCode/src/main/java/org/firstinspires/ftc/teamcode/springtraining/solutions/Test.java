@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.springtraining;
+package org.firstinspires.ftc.teamcode.springtraining.solutions;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -27,7 +27,7 @@ public class Test extends OpMode {
     @Override
     public void loop() {
         throttleDrive = -gamepad1.left_stick_y / 5;
-        directionDrive = -gamepad1.left_stick_x / 10;
+        directionDrive = -gamepad1.right_stick_x / 10;
 
         powerLeft = throttleDrive + directionDrive;
         powerRight = throttleDrive - directionDrive;

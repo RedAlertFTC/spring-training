@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.springtraining;
+package org.firstinspires.ftc.teamcode.springtraining.solutions;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 
 import static java.lang.Thread.sleep;
-import static org.firstinspires.ftc.teamcode.springtraining.LineTest.direction.left;
-import static org.firstinspires.ftc.teamcode.springtraining.LineTest.direction.right;
+import static org.firstinspires.ftc.teamcode.springtraining.solutions.LineTest.direction.left;
+import static org.firstinspires.ftc.teamcode.springtraining.solutions.LineTest.direction.right;
 
 @Autonomous(name = "LineTest", group = "Spring Training")
 public class LineTest extends OpMode {
