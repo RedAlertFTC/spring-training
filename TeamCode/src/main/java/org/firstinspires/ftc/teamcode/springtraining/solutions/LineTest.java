@@ -40,12 +40,12 @@ public class LineTest extends OpMode {
             case left:
                 if (colorValue > blackThreshold) {
                     rightDrive.setPower(0.15);
-                    leftDrive.setPower(0);
+                    leftDrive.setPower(-0.1);
                     movementDirection = right;
                 }
             case right:
                  if (colorValue < whiteThreshold) {
-                     rightDrive.setPower(0);
+                     rightDrive.setPower(-0.1);
                      leftDrive.setPower(0.15);
                      movementDirection = left;
                  }
